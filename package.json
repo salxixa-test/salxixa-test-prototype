@@ -7,8 +7,13 @@
         "start": "npm-run-all --parallel open:src",
         "open:src": "babel-node ./tools/serverDev.js",
 
+        "postinstall": "rimraf ./dist/*",
         "build": "NODE_ENV=production webpack --config ./webpack.config.prod.js --progress --colors",
         "start:prod": "npm run build && node ./tools/serverProd.js"
+    },
+    "engines": {
+        "node" : ">=6.2.2",
+        "npm": ">=3.9.5"
     },
     "devDependencies": {
         "babel-cli": "^6.9.0",
@@ -35,6 +40,7 @@
         "npm-run-all": "^2.1.1",
         "open": "0.0.5",
         "postcss-loader": "^0.9.1",
+        "rimraf": "^2.5.2",
         "react-addons-test-utils": "^15.1.0",
         "react-hot-loader": "^3.0.0-beta.2",
         "redux-immutable-state-invariant": "^1.2.3",
